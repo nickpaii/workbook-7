@@ -27,7 +27,7 @@ order by UnitPrice DESC;
 select ProductName, UnitPrice, UnitsInStock
 from products
 where UnitsInStock >= 50
-order by UnitPrice desc, ProductName;
+order by UnitPrice desc, ProductName asc;
 
 -- 7. What are the products that we carry where we have no units on hand, but 1
 -- or more units of them on backorder? Order them by product name.
@@ -40,14 +40,32 @@ order by ProductName;
 select * from categories;
 -- 9. Write a query that lists all of the columns and all of the rows of the
 -- categories table? What is the category id of seafood?
-
+-- Seafood CategoryID: 8. 
+select * from categories;
 -- 10. Examine the Products table. How does it identify the type (category) of
 -- each item sold? Write a query to list all of the seafood items we carry.
+select *
+from products
+where CategoryID = 8;
 -- 11. What are the first and last names of all of the Northwind employees?
+select FirstName, LastName
+from employees;
 -- 12. What employees have "manager" in their titles?
+select FirstName, LastName
+from employees
+where Title like "%Manager%";
 -- 13. List the distinct job titles in employees.
+select distinct(Title) 
+from employees;
 -- 14. What employees have a salary that is between $200 0 and $2500?
+select FirstName, LastName 
+from employees
+where Salary between 2000 and 2500;
 -- 15. List all of the information about all of Northwind's suppliers.
+select * from suppliers;
 -- 16. Examine the Products table. How do you know what supplier supplies
 -- each product? Write a query to list all of the items that "Tokyo Traders"
 -- supplies to Northwind
+select *
+from products
+where SupplierID = 4;
